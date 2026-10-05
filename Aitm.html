@@ -1,0 +1,2698 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AITM College</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* ================= TOP BAR ================= */
+
+        .top-bar {
+            background: #073b66;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .top-bar i {
+            margin-right: 5px;
+        }
+
+        .top-right {
+            text-align: right;
+        }
+
+        .top-right a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .top-right a:hover {
+            color: #e67e22;
+        }
+
+        /* ================= HEADER ================= */
+
+        .main-header {
+            background: white;
+            padding: 12px 0;
+            box-shadow: 0 2px 10px #aaa;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+        }
+
+        .logo h2 {
+            margin: 0;
+            color: #073b66;
+            font-weight: bold;
+        }
+
+        .logo p {
+            margin: 0;
+            color: #777;
+            font-size: 12px;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            border: none;
+            background: transparent;
+        }
+
+        .navbar-nav {
+            margin-top: 12px;
+        }
+
+        .navbar-nav > li > a {
+            font-size: 16px;
+            font-weight: bold;
+            color: #073b66 !important;
+            padding: 15px 12px;
+            cursor: pointer;
+        }
+
+        .navbar-nav > li > a:hover,
+        .navbar-nav > li.active > a {
+            color: #e67e22 !important;
+            background: transparent !important;
+        }
+
+        /* ================= PAGE SYSTEM ================= */
+
+        .page {
+            display: none;
+            min-height: 500px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ================= HOME SLIDER ================= */
+
+        .carousel-inner img {
+            width: 100%;
+            height: 600px !important;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            background: rgba(0,0,0,0.55);
+            padding: 25px;
+            border-radius: 5px;
+        }
+
+        .carousel-caption h1 {
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .carousel-caption p {
+            font-size: 20px;
+        }
+
+        /* ================= COMMON ================= */
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: #073b66;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .section-title p {
+            color: #777;
+            font-size: 16px;
+        }
+
+        .line {
+            width: 70px;
+            height: 4px;
+            background: #e67e22;
+            margin: 15px auto;
+        }
+
+        /* ================= PAGE HEADER ================= */
+
+        .page-header-custom {
+            background:
+                linear-gradient(rgba(7,59,102,0.85),
+                rgba(7,59,102,0.85)),
+                url("clb.jpg");
+
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header-custom h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0 0 10px;
+        }
+
+        .page-header-custom p {
+            font-size: 19px;
+        }
+
+        /* ================= WELCOME ================= */
+
+        .welcome {
+            background: #f5f8fb;
+        }
+
+        .welcome-img img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .welcome-text h2 {
+            color: #073b66;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .welcome-text p {
+            font-size: 16px;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .btn-main {
+            background: #e67e22;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            border: none;
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-main:hover {
+            background: #073b66;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* ================= CARDS ================= */
+
+        .college-card {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            min-height: 250px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px #ddd;
+            transition: 0.3s;
+        }
+
+        .college-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px #ccc;
+        }
+
+        .college-card i {
+            font-size: 45px;
+            color: #e67e22;
+            margin-bottom: 20px;
+        }
+
+        .college-card h3 {
+            color: #073b66;
+            font-weight: bold;
+        }
+
+        .college-card p {
+            color: #666;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-img img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .about-text h2 {
+            color: #073b66;
+            font-weight: bold;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        /* ================= COUNTER ================= */
+
+        .counter-section {
+            background: #073b66;
+            color: white;
+            padding: 60px 0;
+        }
+
+        .counter-box {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .counter-box i {
+            font-size: 40px;
+            color: #e67e22;
+        }
+
+        .counter-box h2 {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .counter-box p {
+            font-size: 17px;
+        }
+
+        /* ================= COURSES ================= */
+
+        .course-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px #ddd;
+            margin-bottom: 30px;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 20px;
+        }
+
+        .course-content h3 {
+            color: #073b66;
+            font-weight: bold;
+        }
+
+        /* ================= CAMPUS ================= */
+
+        .campus {
+            background: #f5f8fb;
+        }
+
+        .campus-img {
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .campus-img img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .campus-img img:hover {
+            transform: scale(1.08);
+        }
+
+        /* ================= ADMISSION ================= */
+
+        .admission {
+            background:
+                linear-gradient(rgba(7,59,102,0.9),
+                rgba(7,59,102,0.9)),
+                url("clbook.jpg");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .admission h2 {
+            font-size: 38px;
+            font-weight: bold;
+        }
+
+        .admission p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .admission-form {
+            background: white;
+            color: #333;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            max-width: 750px;
+            margin: 30px auto;
+        }
+
+        .admission-form h2 {
+            color: #073b66;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            height: 45px;
+            margin-bottom: 15px;
+        }
+
+        textarea.form-control {
+            height: 120px;
+        }
+
+        /* ================= TESTIMONIAL ================= */
+
+        .testimonial {
+            background: #f5f8fb;
+        }
+
+        .student {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 3px 15px #ddd;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .student img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .student h3 {
+            color: #073b66;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-box {
+            padding: 30px;
+            box-shadow: 0 3px 15px #ddd;
+            margin-bottom: 30px;
+            min-height: 180px;
+        }
+
+        .contact-box i {
+            color: #e67e22;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        /* ================= LOGIN ================= */
+
+        .login-section {
+            background: #f5f8fb;
+            padding: 80px 0;
+        }
+
+        .login-box {
+            background: white;
+            max-width: 450px;
+            margin: auto;
+            padding: 40px;
+            box-shadow: 0 5px 25px #ccc;
+            border-radius: 8px;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            color: #073b66;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .login-box button {
+            width: 100%;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #062d4d;
+            color: white;
+            padding-top: 55px;
+        }
+
+        footer h3 {
+            color: #e67e22;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            color: #ddd;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer ul li a {
+            color: #ddd;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        footer ul li a:hover {
+            color: #e67e22;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: #073b66;
+            border-radius: 50%;
+            text-align: center;
+            padding-top: 10px;
+            margin-right: 8px;
+        }
+
+        .copyright {
+            background: #041f35;
+            text-align: center;
+            padding: 18px;
+            margin-top: 40px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width: 767px) {
+
+            .top-right {
+                text-align: left;
+                margin-top: 5px;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .logo h2 {
+                font-size: 20px;
+            }
+
+            .logo p {
+                font-size: 10px;
+            }
+
+            .navbar-nav {
+                margin-top: 0;
+            }
+
+            .navbar-nav > li > a {
+                padding: 12px 15px;
+            }
+
+            .carousel-inner img {
+                height: 350px !important;
+            }
+
+            .carousel-caption {
+                padding: 10px;
+            }
+
+            .carousel-caption h1 {
+                font-size: 25px;
+            }
+
+            .carousel-caption p {
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 45px 0;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .welcome-img img,
+            .about-img img {
+                height: 280px;
+                margin-bottom: 25px;
+            }
+
+            .counter-box h2 {
+                font-size: 32px;
+            }
+
+            .admission h2 {
+                font-size: 28px;
+            }
+
+            .login-box {
+                margin: 15px;
+                padding: 25px;
+            }
+
+            .page-header-custom {
+                padding: 70px 15px;
+            }
+
+            .page-header-custom h1 {
+                font-size: 34px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ========================================================= -->
+<!-- TOP BAR -->
+<!-- ========================================================= -->
+
+<div class="top-bar">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-6">
+
+                <i class="fa fa-phone"></i>
+                +91 9876543210
+
+                &nbsp;&nbsp;
+
+                <i class="fa fa-envelope"></i>
+                info@aitmcollege.com
+
+            </div>
+
+            <div class="col-sm-6 top-right">
+
+                <a onclick="showPage('login')">
+                    Student Login
+                </a>
+
+                <a onclick="showPage('login')">
+                    Staff Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- HEADER / NAVBAR -->
+<!-- ========================================================= -->
+
+<header class="main-header">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+
+                <div class="logo">
+
+                    <img src="logo.jpg">
+
+                    <div>
+
+                        <h2>AITM</h2>
+
+                        <p>
+                            Advanced Institute of Technology & Management
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-sm-8">
+
+                <nav class="navbar navbar-default">
+
+                    <div class="navbar-header">
+
+                        <button type="button"
+                                class="navbar-toggle collapsed"
+                                data-toggle="collapse"
+                                data-target="#menu">
+
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+
+                        </button>
+
+                    </div>
+
+
+                    <div id="menu"
+                         class="collapse navbar-collapse">
+
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li id="nav-home">
+                                <a onclick="showPage('home')">
+                                    Home
+                                </a>
+                            </li>
+
+                            <li id="nav-about">
+                                <a onclick="showPage('about')">
+                                    About
+                                </a>
+                            </li>
+
+                            <li id="nav-academics">
+                                <a onclick="showPage('academics')">
+                                    Academics
+                                </a>
+                            </li>
+
+                            <li id="nav-services">
+                                <a onclick="showPage('services')">
+                                    Services
+                                </a>
+                            </li>
+
+                            <li id="nav-admission">
+                                <a onclick="showPage('admission')">
+                                    Admission
+                                </a>
+                            </li>
+
+                            <li id="nav-campus">
+                                <a onclick="showPage('campus')">
+                                    Campus Life
+                                </a>
+                            </li>
+
+                            <li id="nav-login">
+                                <a onclick="showPage('login')">
+                                    Login
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </nav>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ========================================================= -->
+<!-- HOME PAGE -->
+<!-- ========================================================= -->
+
+<div id="home" class="page active">
+
+    <!-- SLIDER -->
+
+    <div id="collegeSlider"
+         class="carousel slide"
+         data-ride="carousel">
+
+        <ol class="carousel-indicators">
+
+            <li data-target="#collegeSlider"
+                data-slide-to="0"
+                class="active"></li>
+
+            <li data-target="#collegeSlider"
+                data-slide-to="1"></li>
+
+            <li data-target="#collegeSlider"
+                data-slide-to="2"></li>
+
+            <li data-target="#collegeSlider"
+                data-slide-to="3"></li>
+
+        </ol>
+
+
+        <div class="carousel-inner">
+
+            <div class="item active">
+
+                <img src="clb.jpg">
+
+                <div class="carousel-caption">
+
+                    <h1>
+                        Welcome to AITM
+                    </h1>
+
+                    <p>
+                        Education Today, Success Tomorrow
+                    </p>
+
+                    <a onclick="showPage('about')"
+                       class="btn-main">
+                        Explore College
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="item">
+
+                <img src="clS.jpg">
+
+                <div class="carousel-caption">
+
+                    <h1>
+                        Modern Campus
+                    </h1>
+
+                    <p>
+                        Learn, Grow and Achieve Your Dreams
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="item">
+
+                <img src="clbook.jpg">
+
+                <div class="carousel-caption">
+
+                    <h1>
+                        Excellent Academics
+                    </h1>
+
+                    <p>
+                        Quality Education With Experienced Faculty
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="item">
+
+                <img src="clevents.jpg">
+
+                <div class="carousel-caption">
+
+                    <h1>
+                        Campus Life
+                    </h1>
+
+                    <p>
+                        Events, Activities and Student Development
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a class="left carousel-control"
+           href="#collegeSlider"
+           data-slide="prev">
+
+            <span class="glyphicon glyphicon-chevron-left"></span>
+
+        </a>
+
+
+        <a class="right carousel-control"
+           href="#collegeSlider"
+           data-slide="next">
+
+            <span class="glyphicon glyphicon-chevron-right"></span>
+
+        </a>
+
+    </div>
+
+
+    <!-- WELCOME -->
+
+    <section class="section welcome">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    Welcome to AITM
+                </h2>
+
+                <div class="line"></div>
+
+                <p>
+                    Building Knowledge, Skills and Future
+                </p>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-6 welcome-img">
+
+                    <img src="clb.jpg">
+
+                </div>
+
+
+                <div class="col-md-6 welcome-text">
+
+                    <h2>
+                        Best Place For Quality Education
+                    </h2>
+
+                    <p>
+                        AITM is committed to providing quality
+                        education and creating an environment where
+                        students can learn new technologies, develop
+                        professional skills and prepare themselves
+                        for a successful career.
+                    </p>
+
+                    <p>
+                        Our college focuses on academics, practical
+                        learning, innovation, personality development
+                        and overall growth of students.
+                    </p>
+
+                    <a onclick="showPage('about')"
+                       class="btn-main">
+                        Read More
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOME SERVICES -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    Why Choose AITM?
+                </h2>
+
+                <div class="line"></div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-graduation-cap"></i>
+
+                        <h3>
+                            Quality Education
+                        </h3>
+
+                        <p>
+                            Experienced faculty and modern
+                            teaching methods.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-laptop"></i>
+
+                        <h3>
+                            Practical Learning
+                        </h3>
+
+                        <p>
+                            Learn with practical projects,
+                            labs and modern technology.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-users"></i>
+
+                        <h3>
+                            Student Support
+                        </h3>
+
+                        <p>
+                            Complete guidance for academic
+                            and professional growth.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COUNTER -->
+
+    <section class="counter-section">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6">
+
+                    <div class="counter-box">
+
+                        <i class="fa fa-users"></i>
+
+                        <h2>5000+</h2>
+
+                        <p>Students</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-6">
+
+                    <div class="counter-box">
+
+                        <i class="fa fa-graduation-cap"></i>
+
+                        <h2>50+</h2>
+
+                        <p>Courses</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-6">
+
+                    <div class="counter-box">
+
+                        <i class="fa fa-user"></i>
+
+                        <h2>200+</h2>
+
+                        <p>Faculty Members</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-6">
+
+                    <div class="counter-box">
+
+                        <i class="fa fa-trophy"></i>
+
+                        <h2>25+</h2>
+
+                        <p>Years Experience</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TESTIMONIAL -->
+
+    <section class="section testimonial">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    Student Reviews
+                </h2>
+
+                <div class="line"></div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <div class="student">
+
+                        <img src="Veerendra Kumar.jpeg">
+
+                        <h3>
+                            Veerendra Yadav
+                        </h3>
+
+                        <p>
+                            "The faculty members are very supportive
+                            and the campus environment is excellent."
+                        </p>
+
+                        <p>
+                            ★★★★★
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="student">
+
+                        <img src="Rahul.jpeg">
+
+                        <h3>
+                            Rahul Yadav
+                        </h3>
+
+                        <p>
+                            "I got good opportunities to improve my
+                            technical and communication skills."
+                        </p>
+
+                        <p>
+                            ★★★★★
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="student">
+
+                        <img src="Vipin.jpeg">
+
+                        <h3>
+                            Vipin Maurya
+                        </h3>
+
+                        <p>
+                            "The college provides good facilities
+                            and many extracurricular activities."
+                        </p>
+
+                        <p>
+                            ★★★★★
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- ABOUT PAGE -->
+<!-- ========================================================= -->
+
+<div id="about" class="page">
+
+    <div class="page-header-custom">
+
+        <h1>
+            About AITM
+        </h1>
+
+        <p>
+            Advanced Institute of Technology & Management
+        </p>
+
+    </div>
+
+
+    <section class="section welcome">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6 about-img">
+
+                    <img src="clS.jpg">
+
+                </div>
+
+
+                <div class="col-md-6 about-text">
+
+                    <h2>
+                        About Our College
+                    </h2>
+
+                    <div class="line"
+                         style="margin-left:0;">
+                    </div>
+
+                    <p>
+                        Advanced Institute of Technology & Management
+                        is an educational institution focused on
+                        providing professional education and practical
+                        knowledge to students.
+                    </p>
+
+                    <p>
+                        We believe that education is not only about
+                        books and examinations. It is also about
+                        developing confidence, communication skills,
+                        technical knowledge and leadership qualities.
+                    </p>
+
+                    <p>
+                        Our faculty members guide students throughout
+                        their academic journey and help them prepare
+                        for higher education and employment opportunities.
+                    </p>
+
+                    <p>
+                        AITM provides students with an environment
+                        where they can learn, innovate and develop
+                        their professional skills.
+                    </p>
+
+                    <a onclick="showPage('admission')"
+                       class="btn-main">
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="counter-section">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-4">
+
+                    <div class="counter-box">
+
+                        <i class="fa fa-users"></i>
+
+                        <h2>5000+</h2>
+
+                        <p>Students</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-4">
+
+                    <div class="counter-box">
+
+                        <i class="fa fa-user"></i>
+
+                        <h2>200+</h2>
+
+                        <p>Faculty</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-4">
+
+                    <div class="counter-box">
+
+                        <i class="fa fa-trophy"></i>
+
+                        <h2>25+</h2>
+
+                        <p>Years Experience</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- ACADEMICS PAGE -->
+<!-- ========================================================= -->
+
+<div id="academics" class="page">
+
+    <div class="page-header-custom">
+
+        <h1>
+            Academic Programs
+        </h1>
+
+        <p>
+            Explore Our Courses & Programs
+        </p>
+
+    </div>
+
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    Our Courses
+                </h2>
+
+                <div class="line"></div>
+
+                <p>
+                    Choose the right program for your future
+                </p>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="course-card">
+
+                        <img src="clbook.jpg">
+
+                        <div class="course-content">
+
+                            <h3>
+                                Computer Science
+                            </h3>
+
+                            <p>
+                                Learn programming, web development,
+                                database, software development and
+                                modern technologies.
+                            </p>
+
+                            <button onclick="showPage('admission')"
+                                    class="btn-main">
+                                View Course
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="course-card">
+
+                        <img src="clb.jpg">
+
+                        <div class="course-content">
+
+                            <h3>
+                                Management
+                            </h3>
+
+                            <p>
+                                Develop business, management,
+                                communication and leadership skills.
+                            </p>
+
+                            <button onclick="showPage('admission')"
+                                    class="btn-main">
+                                View Course
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="course-card">
+
+                        <img src="clS.jpg">
+
+                        <div class="course-content">
+
+                            <h3>
+                                Engineering
+                            </h3>
+
+                            <p>
+                                Practical engineering education
+                                with modern laboratories and facilities.
+                            </p>
+
+                            <button onclick="showPage('admission')"
+                                    class="btn-main">
+                                View Course
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-code"></i>
+
+                        <h3>
+                            Web Development
+                        </h3>
+
+                        <p>
+                            HTML, CSS, JavaScript and modern
+                            web technologies.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-database"></i>
+
+                        <h3>
+                            Database
+                        </h3>
+
+                        <p>
+                            Learn database concepts and
+                            data management technologies.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-mobile"></i>
+
+                        <h3>
+                            Application Development
+                        </h3>
+
+                        <p>
+                            Learn application development
+                            and modern programming.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- SERVICES PAGE -->
+<!-- ========================================================= -->
+
+<div id="services" class="page">
+
+    <div class="page-header-custom">
+
+        <h1>
+            Our Services
+        </h1>
+
+        <p>
+            Facilities Provided For Our Students
+        </p>
+
+    </div>
+
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    College Facilities
+                </h2>
+
+                <div class="line"></div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-book"></i>
+
+                        <h3>
+                            Digital Library
+                        </h3>
+
+                        <p>
+                            Modern library with books,
+                            study materials and digital resources.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-laptop"></i>
+
+                        <h3>
+                            Computer Lab
+                        </h3>
+
+                        <p>
+                            Fully equipped computer laboratories
+                            for practical learning.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-wifi"></i>
+
+                        <h3>
+                            Free Wi-Fi
+                        </h3>
+
+                        <p>
+                            High speed internet facilities
+                            available across the campus.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-home"></i>
+
+                        <h3>
+                            Hostel
+                        </h3>
+
+                        <p>
+                            Comfortable and secure hostel
+                            facilities for students.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-futbol-o"></i>
+
+                        <h3>
+                            Sports
+                        </h3>
+
+                        <p>
+                            Sports facilities for physical
+                            fitness and student activities.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-bus"></i>
+
+                        <h3>
+                            Transport
+                        </h3>
+
+                        <p>
+                            Safe and convenient transportation
+                            facility for students.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- ADMISSION PAGE -->
+<!-- ========================================================= -->
+
+<div id="admission" class="page">
+
+    <div class="page-header-custom">
+
+        <h1>
+            Admission
+        </h1>
+
+        <p>
+            Start Your Journey With AITM
+        </p>
+
+    </div>
+
+
+    <section class="section admission">
+
+        <div class="container">
+
+            <div class="text-center">
+
+                <h2>
+                    Admissions Are Open
+                </h2>
+
+                <p>
+                    Admissions are open for the new academic session.
+                </p>
+
+            </div>
+
+
+            <div class="admission-form">
+
+                <h2>
+                    Admission Enquiry Form
+                </h2>
+
+
+                <form onsubmit="submitAdmission(event)">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <label>
+                                Student Name
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter Student Name"
+                                   required>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label>
+                                Father's Name
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter Father's Name"
+                                   required>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label>
+                                Email
+                            </label>
+
+                            <input type="email"
+                                   class="form-control"
+                                   placeholder="Enter Email"
+                                   required>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label>
+                                Mobile Number
+                            </label>
+
+                            <input type="tel"
+                                   class="form-control"
+                                   placeholder="Enter Mobile Number"
+                                   required>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label>
+                                Select Course
+                            </label>
+
+                            <select class="form-control"
+                                    required>
+
+                                <option value="">
+                                    Select Course
+                                </option>
+
+                                <option>
+                                    Computer Science
+                                </option>
+
+                                <option>
+                                    Management
+                                </option>
+
+                                <option>
+                                    Engineering
+                                </option>
+
+                                <option>
+                                    Web Development
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label>
+                                Qualification
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter Qualification"
+                                   required>
+
+                        </div>
+
+
+                        <div class="col-md-12">
+
+                            <label>
+                                Address
+                            </label>
+
+                            <textarea class="form-control"
+                                      placeholder="Enter Address"></textarea>
+
+                        </div>
+
+
+                        <div class="col-md-12 text-center">
+
+                            <button type="submit"
+                                    class="btn-main">
+
+                                Submit Application
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- CAMPUS PAGE -->
+<!-- ========================================================= -->
+
+<div id="campus" class="page">
+
+    <div class="page-header-custom">
+
+        <h1>
+            Campus Life
+        </h1>
+
+        <p>
+            Experience An Active And Vibrant Campus
+        </p>
+
+    </div>
+
+
+    <section class="section campus">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    Our Campus Gallery
+                </h2>
+
+                <div class="line"></div>
+
+                <p>
+                    Explore our beautiful campus
+                </p>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="campus-img">
+
+                        <img src="clevents.jpg">
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="campus-img">
+
+                        <img src="clb.jpg">
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="campus-img">
+
+                        <img src="clS.jpg">
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="campus-img">
+
+                        <img src="clbook.jpg">
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="campus-img">
+
+                        <img src="clevents.jpg">
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="campus-img">
+
+                        <img src="clb.jpg">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section-title"
+                 style="margin-top:50px;">
+
+                <h2>
+                    Student Activities
+                </h2>
+
+                <div class="line"></div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-trophy"></i>
+
+                        <h3>
+                            Sports Events
+                        </h3>
+
+                        <p>
+                            Various sports activities and
+                            competitions for students.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-music"></i>
+
+                        <h3>
+                            Cultural Events
+                        </h3>
+
+                        <p>
+                            Cultural programs and annual
+                            college events.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="college-card">
+
+                        <i class="fa fa-users"></i>
+
+                        <h3>
+                            Student Clubs
+                        </h3>
+
+                        <p>
+                            Student clubs for learning,
+                            creativity and teamwork.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- LOGIN PAGE -->
+<!-- ========================================================= -->
+
+<div id="login" class="page">
+
+    <div class="page-header-custom">
+
+        <h1>
+            Student Login
+        </h1>
+
+        <p>
+            Access Your AITM Student Account
+        </p>
+
+    </div>
+
+
+    <section class="login-section">
+
+        <div class="container">
+
+            <div class="login-box">
+
+                <h2>
+                    Student Login
+                </h2>
+
+
+                <form onsubmit="loginUser(event)">
+
+                    <label>
+                        Email / Student ID
+                    </label>
+
+                    <input type="text"
+                           id="studentId"
+                           class="form-control"
+                           placeholder="Enter Student ID"
+                           required>
+
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input type="password"
+                           id="studentPassword"
+                           class="form-control"
+                           placeholder="Enter Password"
+                           required>
+
+
+                    <div style="margin:15px 0;">
+
+                        <input type="checkbox">
+
+                        Remember Me
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="btn-main">
+
+                        Login
+
+                    </button>
+
+
+                    <br>
+                    <br>
+
+
+                    <p class="text-center">
+
+                        <a href="#"
+                           onclick="forgotPassword(event)">
+                            Forgot Password?
+                        </a>
+
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- CONTACT SECTION - SHARED -->
+<!-- ========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Contact Us
+            </h2>
+
+            <div class="line"></div>
+
+            <p>
+                Get in touch with AITM
+            </p>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+                <div class="contact-box text-center">
+
+                    <i class="fa fa-map-marker"></i>
+
+                    <h3>
+                        Address
+                    </h3>
+
+                    <p>
+                        College Campus, Main Road,
+                        Uttar Pradesh, India
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="contact-box text-center">
+
+                    <i class="fa fa-phone"></i>
+
+                    <h3>
+                        Phone
+                    </h3>
+
+                    <p>
+                        +91 9876543210
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="contact-box text-center">
+
+                    <i class="fa fa-envelope"></i>
+
+                    <h3>
+                        Email
+                    </h3>
+
+                    <p>
+                        info@aitmcollege.com
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-2">
+
+                <form onsubmit="contactForm(event)">
+
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Your Name"
+                           required>
+
+                    <input type="email"
+                           class="form-control"
+                           placeholder="Your Email"
+                           required>
+
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Subject"
+                           required>
+
+                    <textarea class="form-control"
+                              placeholder="Your Message"
+                              required></textarea>
+
+                    <button type="submit"
+                            class="btn-main">
+
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row">
+
+
+            <div class="col-md-4">
+
+                <h3>
+                    AITM College
+                </h3>
+
+                <p>
+                    Advanced Institute of Technology &
+                    Management is committed to providing
+                    quality education and developing the
+                    next generation of professionals.
+                </p>
+
+
+                <div class="social-icons">
+
+                    <a href="#">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-2">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a onclick="showPage('home')">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="showPage('about')">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="showPage('academics')">
+                            Academics
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="showPage('services')">
+                            Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="showPage('campus')">
+                            Campus Life
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <h3>
+                    Important Links
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a onclick="showPage('admission')">
+                            Admission
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="showPage('login')">
+                            Student Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Notice Board
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Examination
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Results
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    <i class="fa fa-map-marker"></i>
+                    Main Road, Uttar Pradesh
+                </p>
+
+                <p>
+                    <i class="fa fa-phone"></i>
+                    +91 9876543210
+                </p>
+
+                <p>
+                    <i class="fa fa-envelope"></i>
+                    info@aitmcollege.com
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 AITM College.
+            All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+</script>
+
+
+<script>
+
+    /* =====================================================
+       MAIN PAGE SWITCHING FUNCTION
+       ===================================================== */
+
+    function showPage(pageName) {
+
+        /* Hide all pages */
+
+        var pages = document.querySelectorAll(".page");
+
+        pages.forEach(function(page) {
+
+            page.classList.remove("active");
+
+        });
+
+
+        /* Show selected page */
+
+        var selectedPage = document.getElementById(pageName);
+
+        if (selectedPage) {
+
+            selectedPage.classList.add("active");
+
+        }
+
+
+        /* Remove active from all menu */
+
+        var menuItems = document.querySelectorAll(
+            ".navbar-nav li"
+        );
+
+        menuItems.forEach(function(item) {
+
+            item.classList.remove("active");
+
+        });
+
+
+        /* Add active to selected menu */
+
+        var selectedMenu =
+            document.getElementById("nav-" + pageName);
+
+        if (selectedMenu) {
+
+            selectedMenu.classList.add("active");
+
+        }
+
+
+        /* Close mobile menu */
+
+        $(".navbar-collapse").collapse("hide");
+
+
+        /* Go to top */
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* =====================================================
+       CONTACT FORM
+       ===================================================== */
+
+    function contactForm(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Thank you! Your message has been submitted successfully."
+        );
+
+        event.target.reset();
+
+    }
+
+
+    /* =====================================================
+       ADMISSION FORM
+       ===================================================== */
+
+    function submitAdmission(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Thank you! Your admission enquiry has been submitted successfully."
+        );
+
+        event.target.reset();
+
+    }
+
+
+    /* =====================================================
+       LOGIN
+       ===================================================== */
+
+    function loginUser(event) {
+
+        event.preventDefault();
+
+        var id =
+            document.getElementById("studentId").value;
+
+        alert(
+            "Login request submitted for: " + id
+        );
+
+    }
+
+
+    /* =====================================================
+       FORGOT PASSWORD
+       ===================================================== */
+
+    function forgotPassword(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Password recovery option will be available soon."
+        );
+
+    }
+
+
+    /* =====================================================
+       START HOME PAGE
+       ===================================================== */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function() {
+
+            showPage("home");
+
+        }
+    );
+
+</script>
+
+
+</body>
+</html>
+```
